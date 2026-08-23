@@ -1,0 +1,21 @@
+# Datos reales: NUNCA versionar (cartillas, datos personales)
+data/raw/*
+!data/raw/.gitkeep
+data/golden/*
+!data/golden/.gitkeep
+*.pdf
+*.jpg
+*.jpeg
+*.png
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+dist/
+build/

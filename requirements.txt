@@ -1,0 +1,7 @@
+pydantic>=2.6
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
+pytest>=8.0
+# LLM providers (opcionales; el pipeline corre sin ellos con el baseline regex)
+openai>=1.30
