@@ -9,10 +9,49 @@ Los campos de la cartilla alimentan las features del Componente B (recomendador)
 
 from __future__ import annotations
 
+import datetime as _dt
+import re
 from datetime import date
 from enum import Enum
+from typing import Annotated
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, BeforeValidator, Field
+
+
+def _parse_fecha(v: object) -> object:
+    """Acepta fechas en varios formatos (ISO, dd/mm/aaaa) y devuelve date o None."""
+    if v is None or isinstance(v, _dt.date):
+        return v
+    if isinstance(v, str):
+        s = v.strip()
+        if not s:
+            return None
+        for fmt in ("%Y-%m-%d", "%d/%m/%Y", "%d-%m-%Y", "%d/%m/%y", "%d-%m-%y"):
+            try:
+                return _dt.datetime.strptime(s, fmt).date()
+            except ValueError:
+                continue
+        return None
+    return v
+
+
+def _parse_peso(v: object) -> object:
+    """Acepta peso como '8,5', '8.5 kg' o número; devuelve float o None."""
+    if v is None or isinstance(v, (int, float)):
+        return v
+    if isinstance(v, str):
+        m = re.search(r"\d+(?:[.,]\d+)?", v)
+        return float(m.group().replace(",", ".")) if m else None
+    return v
+
+
+def _none_to_list(v: object) -> object:
+    """Convierte None en lista vacía (el LLM a veces devuelve null en listas)."""
+    return [] if v is None else v
+
+
+FechaFlex = Annotated[date | None, BeforeValidator(_parse_fecha)]
+PesoFlex = Annotated[float | None, BeforeValidator(_parse_peso)]
 
 
 class Sexo(str, Enum):
@@ -34,9 +73,9 @@ class Vacuna(BaseModel):
     """Registro de una vacuna en la cartilla."""
 
     nombre: str | None = Field(None, description="Nombre/tipo de vacuna (p. ej. polivalente, rabia).")
-    fecha: date | None = Field(None, description="Fecha de aplicación.")
+    fecha: FechaFlex = Field(None, description="Fecha de aplicación.")
     lote: str | None = Field(None, description="Número de lote, si consta.")
-    proxima: date | None = Field(None, description="Fecha de la próxima dosis/recordatorio.")
+    proxima: FechaFlex = Field(None, description="Fecha de la próxima dosis/recordatorio.")
 
 
 class Desparasitacion(BaseModel):
@@ -44,7 +83,7 @@ class Desparasitacion(BaseModel):
 
     tipo: TipoDesparasitacion | None = None
     producto: str | None = None
-    fecha: date | None = None
+    fecha: FechaFlex = None
 
 
 class DogHealthRecord(BaseModel):
@@ -58,11 +97,11 @@ class DogHealthRecord(BaseModel):
     raza: str | None = Field(None, description="Raza o mezcla.")
     sexo: Sexo | None = None
     castrado: bool | None = Field(None, description="True si castrado/esterilizado.")
-    fecha_nacimiento: date | None = None
-    peso_kg: float | None = Field(None, ge=0, description="Peso en kilogramos.")
+    fecha_nacimiento: FechaFlex = None
+    peso_kg: PesoFlex = Field(None, description="Peso en kilogramos.")
     microchip: str | None = Field(None, description="Número de identificación (microchip).")
-    vacunas: list[Vacuna] = Field(default_factory=list)
-    desparasitaciones: list[Desparasitacion] = Field(default_factory=list)
+    vacunas: Annotated[list[Vacuna], BeforeValidator(_none_to_list)] = Field(default_factory=list)
+    desparasitaciones: Annotated[list[Desparasitacion], BeforeValidator(_none_to_list)] = Field(default_factory=list)
     alergias: str | None = None
     condiciones_medicas: str | None = None
     notas: str | None = None

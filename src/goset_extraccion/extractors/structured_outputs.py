@@ -32,14 +32,16 @@ class StructuredOutputExtractor(Extractor):
 
         client = OpenAI(api_key=self.settings.openai_api_key)
         # API de parseo estructurado: valida contra el modelo Pydantic.
-        completion = client.beta.chat.completions.parse(
-            model=self.settings.llm_model,
-            temperature=self.settings.llm_temperature,
-            messages=[
-                {"role": "system", "content": _INSTRUCTION},
-                {"role": "user", "content": text},
-            ],
-            response_format=DogHealthRecord,
-        )
-        parsed = completion.choices[0].message.parsed
-        return parsed or DogHealthRecord()
+        try:
+            completion = client.beta.chat.completions.parse(
+                model=self.settings.llm_model,
+                temperature=self.settings.llm_temperature,
+                messages=[
+                    {"role": "system", "content": _INSTRUCTION},
+                    {"role": "user", "content": text},
+                ],
+                response_format=DogHealthRecord,
+            )
+            return completion.choices[0].message.parsed or DogHealthRecord()
+        except Exception:  # refusal/parseo fallido: registro vacío, no cancela el lote
+            return DogHealthRecord()

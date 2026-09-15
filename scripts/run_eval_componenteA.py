@@ -77,11 +77,18 @@ def main():
         methods["LLM zero-shot"]=LLMZeroShotExtractor()
         methods["LLM few-shot"]=LLMFewShotExtractor()
         methods["structured outputs (propuesto)"]=StructuredOutputExtractor()
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1].isdigit():
+        n = int(sys.argv[1]); texts = texts[:n]; golds = golds[:n]; rows = rows[:n]
     resultados={}
+    total = len(texts)
     for name,ext in methods.items():
         preds=[]; lat=0.0
-        for t in texts:
+        print(f"[{name}] procesando {total} docs...", flush=True)
+        for i, t in enumerate(texts, 1):
             res=ext.run(t); preds.append(res.record); lat+=res.latency_s
+            if i % 25 == 0 or i == total:
+                print(f"  {name}: {i}/{total}", flush=True)
         m=evaluate(preds, golds); m["latencia_media_ms"]=round(1000*lat/len(texts),3)
         resultados[name]=m
     md=["# Evaluación — Componente A\n",

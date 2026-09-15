@@ -36,4 +36,8 @@ class LLMZeroShotExtractor(Extractor):
             response_format={"type": "json_object"},
             messages=[{"role": "user", "content": _PROMPT.format(text=text)}],
         )
-        return DogHealthRecord.model_validate_json(resp.choices[0].message.content)
+        content = resp.choices[0].message.content
+        try:
+            return DogHealthRecord.model_validate_json(content)
+        except Exception:  # respuesta no parseable: registro vacío, no cancela el lote
+            return DogHealthRecord()
