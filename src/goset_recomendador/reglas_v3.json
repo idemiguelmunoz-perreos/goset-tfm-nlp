@@ -1,0 +1,877 @@
+{
+  "version": "v3_2026-08-13",
+  "estado": "PENDIENTE validacion veterinaria",
+  "n_reglas": 50,
+  "reglas": [
+    {
+      "id": "SP-01",
+      "servicio": "Salud preventiva",
+      "tipo": "DURA",
+      "condicion": "Vacunacion core (parvo/moquillo/adenovirus) o rabia NO vigente",
+      "recomendacion": "Bloquear ingreso a guarderia/hotel; derivar a actualizacion vacunal",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Alta (bloqueante)",
+      "fuentes": [
+        "S1"
+      ],
+      "confianza": "[Certain]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "SP-02",
+      "servicio": "Salud preventiva",
+      "tipo": "DURA",
+      "condicion": "Vacuna Bordetella ausente o >12 meses",
+      "recomendacion": "Requerir Bordetella vigente antes de guarderia/hotel",
+      "frecuencia": "anual",
+      "zona_manejo": "",
+      "prioridad": "Alta (bloqueante)",
+      "fuentes": [
+        "S1"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": "Requisito de facility"
+    },
+    {
+      "id": "SP-03",
+      "servicio": "Salud preventiva",
+      "tipo": "BLANDA",
+      "condicion": "Sin leptospirosis vigente (exposicion)",
+      "recomendacion": "Recomendar leptospirosis (WSAVA la considera core)",
+      "frecuencia": "anual",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S1"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "SP-04",
+      "servicio": "Salud preventiva",
+      "tipo": "BLANDA",
+      "condicion": "Ultima desparasitacion interna >3 meses",
+      "recomendacion": "Recomendar desparasitacion",
+      "frecuencia": "min. 4/ano",
+      "zona_manejo": "",
+      "prioridad": "Media-Alta",
+      "fuentes": [
+        "S2"
+      ],
+      "confianza": "[Certain]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "SP-05",
+      "servicio": "Salud preventiva",
+      "tipo": "BLANDA",
+      "condicion": "Cachorro con serie de vacunacion incompleta",
+      "recomendacion": "Finalizar serie + visitas preventivas frecuentes",
+      "frecuencia": "segun pauta",
+      "zona_manejo": "",
+      "prioridad": "Alta-temporal",
+      "fuentes": [
+        "S1",
+        "S5"
+      ],
+      "confianza": "[Certain]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "SP-06",
+      "servicio": "Salud preventiva",
+      "tipo": "BLANDA",
+      "condicion": "Etapa senior",
+      "recomendacion": "Revisiones veterinarias >= semestrales + base diagnostica anual",
+      "frecuencia": "semestral",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S5"
+      ],
+      "confianza": "[Certain]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "SP-07",
+      "servicio": "Salud preventiva",
+      "tipo": "BLANDA",
+      "condicion": "Sin higiene dental o signos de sarro/gingivitis",
+      "recomendacion": "Cepillado dental + valoracion de profilaxis",
+      "frecuencia": "cepillado diario",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S6"
+      ],
+      "confianza": "[Certain]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "SP-08",
+      "servicio": "Salud preventiva",
+      "tipo": "BLANDA",
+      "condicion": "Raza braquicefala (bulldog, carlino, etc.)",
+      "recomendacion": "Monitorizar BOAS/calor; mantener condicion corporal magra; evitar esfuerzo en calor",
+      "frecuencia": "",
+      "zona_manejo": "Acceso/contacto con zona fresca-sombra; evitar calor y humedad",
+      "prioridad": "Media-Alta",
+      "fuentes": [
+        "S9"
+      ],
+      "confianza": "[Certain]",
+      "estado": "v1(editada)",
+      "notas": "Zona fresca anadida"
+    },
+    {
+      "id": "SP-09",
+      "servicio": "Salud preventiva",
+      "tipo": "BLANDA",
+      "condicion": "Senior y/o osteoartritis/movilidad reducida",
+      "recomendacion": "Valoracion veterinaria + ejercicio controlado de bajo impacto",
+      "frecuencia": "",
+      "zona_manejo": "Alta visibilidad, cerca del nucleo de supervision; suelo antideslizante",
+      "prioridad": "Media",
+      "fuentes": [
+        "S13"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1(editada)",
+      "notas": "Supervision cercana anadida"
+    },
+    {
+      "id": "PE-01",
+      "servicio": "Peluqueria",
+      "tipo": "BLANDA",
+      "condicion": "Manto rizado/lanoso (caniche, bichon)",
+      "recomendacion": "Peluqueria profesional + cepillado; alto riesgo de apelmazamiento",
+      "frecuencia": "Peluqueria 4-6 sem; bano ~3 sem; cepillado diario",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S15"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1(editada)",
+      "notas": "Frecuencia anadida"
+    },
+    {
+      "id": "PE-02",
+      "servicio": "Peluqueria",
+      "tipo": "BLANDA",
+      "condicion": "Manto doble (pastor, husky)",
+      "recomendacion": "Deslanado/higiene de muda; NUNCA rasurar",
+      "frecuencia": "Groom completo 3-4/ano; deslanado estacional; cepillado semanal",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S15"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1(editada)",
+      "notas": "Frecuencia anadida"
+    },
+    {
+      "id": "PE-03",
+      "servicio": "Peluqueria",
+      "tipo": "BLANDA",
+      "condicion": "Manto largo/sedoso (shih tzu, maltes, yorkshire)",
+      "recomendacion": "Cepillado frecuente + recortes de mantenimiento",
+      "frecuencia": "Peluqueria 4-8 sem; bano 3-6 sem; cepillado diario",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S15"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1(editada)",
+      "notas": "Frecuencia anadida"
+    },
+    {
+      "id": "PE-04",
+      "servicio": "Peluqueria",
+      "tipo": "BLANDA",
+      "condicion": "Presencia de nudos/apelmazamiento",
+      "recomendacion": "Priorizar desenredo; alerta de bienestar (dolor, lesion)",
+      "frecuencia": "Prevencion: cepillado diario segun manto",
+      "zona_manejo": "",
+      "prioridad": "Alta",
+      "fuentes": [
+        "S14"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1(editada)",
+      "notas": "Frecuencia (prevencion) anadida"
+    },
+    {
+      "id": "PE-05",
+      "servicio": "Peluqueria",
+      "tipo": "BLANDA",
+      "condicion": "Orejas caidas o canal auditivo con pelo",
+      "recomendacion": "Limpieza/higiene auricular; riesgo elevado de otitis externa",
+      "frecuencia": "Limpieza cada ~2 sem",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S11"
+      ],
+      "confianza": "[Certain]",
+      "estado": "v1(editada)",
+      "notas": "Frecuencia anadida"
+    },
+    {
+      "id": "PE-06",
+      "servicio": "Peluqueria",
+      "tipo": "BLANDA",
+      "condicion": "Unas largas / sin corte reciente",
+      "recomendacion": "Corte de unas (unas largas causan dolor y problemas de marcha)",
+      "frecuencia": "Cada 2-4 sem",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S12"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "PE-07",
+      "servicio": "Peluqueria",
+      "tipo": "BLANDA",
+      "condicion": "Pelo en zonas higienicas (ojos, almohadillas, perianal)",
+      "recomendacion": "Recorte sanitario periodico",
+      "frecuencia": "Cada 2-4 sem",
+      "zona_manejo": "",
+      "prioridad": "Baja-Media",
+      "fuentes": [
+        "S15"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "EN-01",
+      "servicio": "Entrenamiento",
+      "tipo": "BLANDA",
+      "condicion": "Cachorro en ventana de socializacion (<~4 meses), >=1 set vacunas, sano",
+      "recomendacion": "Clase de socializacion/cachorros (ventana critica 3-16 sem)",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Alta-temporal",
+      "fuentes": [
+        "S4"
+      ],
+      "confianza": "[Certain]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "EN-02",
+      "servicio": "Entrenamiento",
+      "tipo": "DURA",
+      "condicion": "Cualquier plan de entrenamiento (politica transversal)",
+      "recomendacion": "Solo refuerzo positivo; prohibido metodo/material aversivo",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Alta",
+      "fuentes": [
+        "S7"
+      ],
+      "confianza": "[Certain]",
+      "estado": "v1",
+      "notas": "Politica"
+    },
+    {
+      "id": "EN-03",
+      "servicio": "Entrenamiento",
+      "tipo": "BLANDA",
+      "condicion": "Signos de ansiedad por separacion",
+      "recomendacion": "Desensibilizacion gradual + apoyo; descartar causa medica",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S8"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "EN-04",
+      "servicio": "Entrenamiento",
+      "tipo": "BLANDA",
+      "condicion": "Reactividad hacia otros perros",
+      "recomendacion": "Entrenamiento gestionado + introduccion controlada (ver GU-08)",
+      "frecuencia": "",
+      "zona_manejo": "Ver zona reactivos (GU-08)",
+      "prioridad": "Media-Alta",
+      "fuentes": [
+        "S7"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1(editada)",
+      "notas": "Enlace a division reactivos"
+    },
+    {
+      "id": "EN-05",
+      "servicio": "Entrenamiento",
+      "tipo": "BLANDA",
+      "condicion": "Adulto con obediencia nula/basica",
+      "recomendacion": "Programa de obediencia basica con refuerzo positivo",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Baja-Media",
+      "fuentes": [
+        "S7"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "EN-06",
+      "servicio": "Entrenamiento",
+      "tipo": "BLANDA",
+      "condicion": "Miedo/ansiedad generalizada",
+      "recomendacion": "Derivar a etologia veterinaria; evitar inundacion/exposicion forzada",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S7"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "EN-07",
+      "servicio": "Entrenamiento",
+      "tipo": "DURA",
+      "condicion": "Agresion / proteccion de recursos hacia perros o personas",
+      "recomendacion": "Valoracion conductual; NO integrar en grupo hasta evaluar",
+      "frecuencia": "",
+      "zona_manejo": "Manejo individual hasta evaluar",
+      "prioridad": "Alta (bloqueante grupo)",
+      "fuentes": [
+        "S7"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": "Seguridad"
+    },
+    {
+      "id": "GU-01",
+      "servicio": "Guarderia",
+      "tipo": "DURA",
+      "condicion": "Sin evaluacion de temperamento previa",
+      "recomendacion": "Evaluacion obligatoria de estilo de juego/energia/tolerancia antes de grupo",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Alta (bloqueante)",
+      "fuentes": [
+        "S17",
+        "S18"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "GU-02",
+      "servicio": "Guarderia",
+      "tipo": "BLANDA",
+      "condicion": "Perfil de energia/estilo de juego conocido",
+      "recomendacion": "Agrupar por estilo/energia primero, tamano despues; grupos pequenos y estables",
+      "frecuencia": "",
+      "zona_manejo": "Grupo por afinidad estable",
+      "prioridad": "Media",
+      "fuentes": [
+        "S17",
+        "S18"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "GU-03",
+      "servicio": "Guarderia",
+      "tipo": "BLANDA",
+      "condicion": "Emparejamiento social incompatible detectado",
+      "recomendacion": "Reagrupar; el emparejamiento incompatible aumenta el estres",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Media-Alta",
+      "fuentes": [
+        "S18"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "GU-04",
+      "servicio": "Guarderia",
+      "tipo": "BLANDA",
+      "condicion": "Joven adulto de alta energia sin salida de ejercicio",
+      "recomendacion": "Guarderia activa beneficiosa (enriquecimiento, olfato, juego social)",
+      "frecuencia": "",
+      "zona_manejo": "Zona de actividad",
+      "prioridad": "Media",
+      "fuentes": [
+        "S17"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "GU-05",
+      "servicio": "Guarderia",
+      "tipo": "BLANDA",
+      "condicion": "Ansiedad por separacion",
+      "recomendacion": "Guarderia como apoyo (separaciones cortas repetidas positivas)",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S8"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "GU-06",
+      "servicio": "Guarderia",
+      "tipo": "BLANDA",
+      "condicion": "Braquicefalo en jornada de guarderia",
+      "recomendacion": "Monitorizar calor/esfuerzo; reposo obligatorio; agua fresca",
+      "frecuencia": "",
+      "zona_manejo": "Zona fresca; ciclos de reposo",
+      "prioridad": "Media-Alta",
+      "fuentes": [
+        "S9"
+      ],
+      "confianza": "[Certain]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "GU-07",
+      "servicio": "Guarderia",
+      "tipo": "BLANDA",
+      "condicion": "Senior o con osteoartritis",
+      "recomendacion": "Grupo tranquilo/senior; bajo impacto; ventanas de descanso",
+      "frecuencia": "",
+      "zona_manejo": "Zona senior de alta visibilidad, cerca del nucleo; suelo antideslizante",
+      "prioridad": "Media",
+      "fuentes": [
+        "S13"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1(editada)",
+      "notas": "Zona senior anadida"
+    },
+    {
+      "id": "AL-01",
+      "servicio": "Alimentacion",
+      "tipo": "BLANDA",
+      "condicion": "BCS >=6/9 (sobrepeso/obesidad)",
+      "recomendacion": "Control de peso: dieta y raciones ajustadas + actividad (ver AL-07)",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S3"
+      ],
+      "confianza": "[Certain]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "AL-02",
+      "servicio": "Alimentacion",
+      "tipo": "BLANDA",
+      "condicion": "BCS <=3/9 (delgadez)",
+      "recomendacion": "Valoracion veterinaria + ajuste calorico; descartar causa medica",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S3"
+      ],
+      "confianza": "[Certain]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "AL-03",
+      "servicio": "Alimentacion",
+      "tipo": "BLANDA",
+      "condicion": "Cachorro de raza grande/gigante",
+      "recomendacion": "Dieta de crecimiento con Ca/P controlado",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Media-Alta",
+      "fuentes": [
+        "S10"
+      ],
+      "confianza": "[Certain]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "AL-04",
+      "servicio": "Alimentacion",
+      "tipo": "BLANDA",
+      "condicion": "Cachorro (cualquier tamano)",
+      "recomendacion": "Dieta completa y equilibrada (AAFCO) + frecuencia de tomas por edad",
+      "frecuencia": "tomas 3-4/dia (cachorro)",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S10",
+        "S5"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "AL-05",
+      "servicio": "Alimentacion",
+      "tipo": "BLANDA",
+      "condicion": "Etapa senior",
+      "recomendacion": "Dieta senior; ajustar calorias a actividad/condicion",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S5"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "AL-06",
+      "servicio": "Alimentacion",
+      "tipo": "BLANDA",
+      "condicion": "Dieta no completa/equilibrada (casera/BARF sin formular)",
+      "recomendacion": "Consulta de nutricion; dieta formulada completa y equilibrada",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S3"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "HO-01",
+      "servicio": "Hotel",
+      "tipo": "DURA",
+      "condicion": "Vacunacion core/rabia/Bordetella no vigente",
+      "recomendacion": "Bloquear estancia hasta actualizar",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Alta (bloqueante)",
+      "fuentes": [
+        "S1"
+      ],
+      "confianza": "[Certain]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "HO-02",
+      "servicio": "Hotel",
+      "tipo": "BLANDA",
+      "condicion": "Ansiedad por separacion",
+      "recomendacion": "Aclimatacion gradual: estancia corta antes de larga",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S8"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "HO-03",
+      "servicio": "Hotel",
+      "tipo": "BLANDA",
+      "condicion": "Senior / osteoartritis / medicacion cronica",
+      "recomendacion": "Cama ortopedica, accesibilidad, administracion de medicacion, vet de guardia",
+      "frecuencia": "",
+      "zona_manejo": "Habitacion accesible, alta visibilidad",
+      "prioridad": "Media",
+      "fuentes": [
+        "S13",
+        "S5"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "HO-04",
+      "servicio": "Hotel",
+      "tipo": "BLANDA",
+      "condicion": "Braquicefalo",
+      "recomendacion": "Ambiente climatizado; evitar calor/humedad; monitorizacion respiratoria",
+      "frecuencia": "",
+      "zona_manejo": "Zona climatizada/fresca",
+      "prioridad": "Media-Alta",
+      "fuentes": [
+        "S9"
+      ],
+      "confianza": "[Certain]",
+      "estado": "v1",
+      "notas": ""
+    },
+    {
+      "id": "GU-08",
+      "servicio": "Guarderia",
+      "tipo": "BLANDA",
+      "condicion": "Perro reactivo (a perros o estimulos)",
+      "recomendacion": "Division/grupo separado; introduccion gradual; supervision entrenada",
+      "frecuencia": "",
+      "zona_manejo": "Zona reactivos: baja densidad, barreras visuales, espacio de retirada",
+      "prioridad": "Media-Alta",
+      "fuentes": [
+        "S18",
+        "S7"
+      ],
+      "confianza": "[Likely]",
+      "estado": "NUEVA v2",
+      "notas": "Division para reactivos que pediste"
+    },
+    {
+      "id": "PE-08",
+      "servicio": "Peluqueria",
+      "tipo": "BLANDA",
+      "condicion": "Miedo al agua / al bano",
+      "recomendacion": "Desensibilizacion + contracondicionamiento; no forzar; bano en seco si procede",
+      "frecuencia": "segun manto",
+      "zona_manejo": "Zona de bano tranquila, suelo antideslizante",
+      "prioridad": "Media",
+      "fuentes": [
+        "S16",
+        "S7"
+      ],
+      "confianza": "[Likely]",
+      "estado": "NUEVA v2",
+      "notas": ""
+    },
+    {
+      "id": "PE-09",
+      "servicio": "Peluqueria",
+      "tipo": "BLANDA",
+      "condicion": "Alergia/dermatitis atopica o piel sensible",
+      "recomendacion": "Banos con champu suave + higiene de manto; identificar y evitar desencadenantes; derivar a veterinaria/dermatologia",
+      "frecuencia": "banos mas frecuentes en brote (segun indicacion)",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S20"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v3 (sourced)",
+      "notas": "Fuente ICADA 2015"
+    },
+    {
+      "id": "SP-10",
+      "servicio": "Salud preventiva",
+      "tipo": "BLANDA",
+      "condicion": "Senior con signos de disfuncion cognitiva",
+      "recomendacion": "Rutina estable, enriquecimiento suave, supervision",
+      "frecuencia": "",
+      "zona_manejo": "Zona tranquila, alta visibilidad",
+      "prioridad": "Media",
+      "fuentes": [
+        "S5"
+      ],
+      "confianza": "[Likely]",
+      "estado": "NUEVA v2",
+      "notas": ""
+    },
+    {
+      "id": "SP-11",
+      "servicio": "Salud preventiva",
+      "tipo": "BLANDA",
+      "condicion": "Movilidad reducida (artrosis, post-quirurgico, geriatrico)",
+      "recomendacion": "Manejo: suelos antideslizantes, evitar escaleras/saltos, accesos a nivel",
+      "frecuencia": "",
+      "zona_manejo": "Zona accesible sin desniveles",
+      "prioridad": "Media",
+      "fuentes": [
+        "S13"
+      ],
+      "confianza": "[Likely]",
+      "estado": "NUEVA v2",
+      "notas": "Etiqueta de manejo, no plano"
+    },
+    {
+      "id": "SP-12",
+      "servicio": "Salud preventiva",
+      "tipo": "BLANDA",
+      "condicion": "Braquicefalo + BCS >=6/9 (interaccion)",
+      "recomendacion": "Prioridad perdida de peso antes de aumentar actividad",
+      "frecuencia": "",
+      "zona_manejo": "Zona fresca",
+      "prioridad": "Alta",
+      "fuentes": [
+        "S9",
+        "S3"
+      ],
+      "confianza": "[Likely]",
+      "estado": "NUEVA v2",
+      "notas": "Regla de interaccion"
+    },
+    {
+      "id": "GU-09",
+      "servicio": "Guarderia",
+      "tipo": "BLANDA",
+      "condicion": "Sensibilidad a ruido/tormentas/estimulos",
+      "recomendacion": "Zona tranquila/refugio; DAP puntual; evitar sobreestimulacion",
+      "frecuencia": "",
+      "zona_manejo": "Zona de calma con barreras acusticas/visuales",
+      "prioridad": "Media",
+      "fuentes": [
+        "S19"
+      ],
+      "confianza": "[Likely]",
+      "estado": "NUEVA v2",
+      "notas": ""
+    },
+    {
+      "id": "GU-10",
+      "servicio": "Guarderia",
+      "tipo": "BLANDA",
+      "condicion": "Hembra entera (sin castrar)",
+      "recomendacion": "Monitorizar proestro (media ~9 dias, hasta 3 sem); SEPARAR de guarderia/grupo mixto durante el celo; el sistema emite flag de manejo",
+      "frecuencia": "por ciclo (~2x/ano)",
+      "zona_manejo": "Separacion temporal durante el celo",
+      "prioridad": "Media",
+      "fuentes": [
+        "S21"
+      ],
+      "confianza": "[Likely]",
+      "estado": "v3 (sourced)",
+      "notas": "Celo: monitorizar y separar; flag automatico"
+    },
+    {
+      "id": "AL-07",
+      "servicio": "Alimentacion",
+      "tipo": "BLANDA",
+      "condicion": "Sobrepeso (BCS>=6) — complemento de AL-01",
+      "recomendacion": "Plan de actividad progresivo y controlado ademas de la dieta",
+      "frecuencia": "progresivo semanal",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S13",
+        "S3"
+      ],
+      "confianza": "[Likely]",
+      "estado": "NUEVA v2",
+      "notas": ""
+    },
+    {
+      "id": "HO-05",
+      "servicio": "Hotel",
+      "tipo": "BLANDA",
+      "condicion": "Primera estancia / perro ansioso en hotel",
+      "recomendacion": "Visita/adaptacion previa + objeto con olor del hogar",
+      "frecuencia": "",
+      "zona_manejo": "",
+      "prioridad": "Media",
+      "fuentes": [
+        "S8"
+      ],
+      "confianza": "[Likely]",
+      "estado": "NUEVA v2",
+      "notas": ""
+    }
+  ],
+  "bibliografia": {
+    "S1": "WSAVA Vaccination Guidelines Group (Squires R. et al.). 2024 guidelines for the vaccination of dogs and cats. J Small Anim Pract, 2024. https://wsava.org/wp-content/uploads/2024/04/WSAVA-Vaccination-guidelines-2024.pdf",
+    "S2": "ESCCAP. Guideline 01, 7th ed. (2025): Worm Control in Dogs and Cats. https://www.esccap.org/uploads/docs/biu0jhej_0778_ESCCAP_GL1__English_2025_v21_1p.pdf",
+    "S3": "WSAVA Global Nutrition Committee. Global Nutrition Guidelines / Body Condition Score (9 puntos). https://wsava.org/global-guidelines/global-nutrition-guidelines/",
+    "S4": "AVSAB. Position Statement on Puppy Socialization. https://avsab.org/wp-content/uploads/2018/03/Puppy_Socialization_Position_Statement_Download_-_10-3-14.pdf",
+    "S5": "Creevy K.E. et al. 2019 AAHA Canine Life Stage Guidelines. J Am Anim Hosp Assoc, 2019. https://www.aaha.org/resources/life-stage-canine-2019/",
+    "S6": "Niemiec B. et al. WSAVA Global Dental Guidelines. J Small Anim Pract, 2020. https://onlinelibrary.wiley.com/doi/abs/10.1111/jsap.13132",
+    "S7": "AVSAB. Position Statement on Humane Dog Training (2021). https://avsab.org/resources/position-statements/",
+    "S8": "ASPCA. Separation Anxiety (recurso de comportamiento). https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/separation-anxiety  [secundaria]",
+    "S9": "Today's Veterinary Practice. Overview of Brachycephalic Obstructive Airway Syndrome (BOAS). https://todaysveterinarypractice.com/respiratory-medicine/an-overview-of-brachycephalic-obstructive-airway-syndrome/",
+    "S10": "VCA Animal Hospitals. Nutritional Considerations for Large and Giant Breed Dogs (Ca/P; base AAFCO). https://vcahospitals.com/know-your-pet/nutritional-considerations-for-large-and-giant-breed-dogs",
+    "S11": "Merck Veterinary Manual. Otitis Externa in Animals. https://www.merckvetmanual.com/ear-disorders/otitis-externa/otitis-externa-in-animals",
+    "S12": "O'Neill D.G. et al. Nail clipping in dogs under UK primary veterinary care (2024). https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12686259/",
+    "S13": "COAST Development Group. International consensus guidelines for canine osteoarthritis. Front Vet Sci, 2023. https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2023.1137888/full",
+    "S14": "Today's Veterinary Nurse. Identify and Address Grooming Neglect (apelmazamiento). https://todaysveterinarynurse.com/ethics-welfare/how-to-identify-and-address-grooming-neglect/",
+    "S15": "Guia profesional de peluqueria por tipo de manto (industria; ref. AKC/groomers). Ej. https://www.animalhospitalofclemmons.com/site/veterinary-pet-care-blog/2022/12/15/dog-grooming-different-coats ; manto largo/sedoso: https://www.petful.com/dog-breeds/shih-tzu-grooming/  [ZONA DEBIL: base peer-reviewed limitada]",
+    "S16": "Desensibilizacion/contracondicionamiento para peluqueria y bano (conductual/industria). https://www.houndtherapy.com/blog/desensitization-techniques-grooming-dogs/",
+    "S17": "Grigg E.K. et al. Pair vs solitary housing in kennelled dogs (behaviour, hair cortisol). Vet Rec Open, 2017.  [ref. research GOSET; confirmar DOI]",
+    "S18": "Single- vs pair-housing welfare of shelter dogs (conducta y fisiologia). PLOS One, 2024.  [ref. research GOSET; confirmar DOI]",
+    "S19": "Hermiston C. et al. Dog-appeasing pheromone (DAP) y conductas de estres. J Vet Behav, 2018.  [ref. research GOSET; confirmar DOI]",
+    "S20": "Olivry T. et al. Treatment of canine atopic dermatitis: 2015 updated guidelines from the International Committee on Allergic Diseases of Animals (ICADA). BMC Vet Res, 2015. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4537558/",
+    "S21": "Merck Veterinary Manual. Reproductive Management of the Female Small Animal (ciclo estral, proestro, manejo). https://www.merckvetmanual.com/reproductive-system/reproductive-diseases-of-the-female-small-animal/reproductive-management-of-the-female-small-animal ; Veterinary Partner/VIN: The Canine Estrous Cycle. https://veterinarypartner.vin.com/doc/?id=11506649&pid=19239"
+  },
+  "esquema_salida": [
+    {
+      "campo": "prioridad",
+      "descripcion": "Nivel clinico/temporal para el ranking (Alta/Media/Baja; 'temporal' si hay ventana)"
+    },
+    {
+      "campo": "ventana_temporal",
+      "descripcion": "Validez/urgencia temporal: vacuna que vence, ventana de socializacion, celo activo"
+    },
+    {
+      "campo": "tipo",
+      "descripcion": "DURA (bloqueante) / BLANDA (scoring blando)"
+    },
+    {
+      "campo": "safety_critical",
+      "descripcion": "Bandera de seguridad (agresion -> no agrupar)"
+    },
+    {
+      "campo": "zona_manejo",
+      "descripcion": "Etiqueta de zona/supervision para guarderia/hotel (fresca, alta visibilidad, grupo reactivo, separacion por celo)"
+    },
+    {
+      "campo": "confianza",
+      "descripcion": "[Certain]/[Likely]/[Guessing]"
+    },
+    {
+      "campo": "needs_human_review",
+      "descripcion": "True si confianza baja o conflicto entre reglas"
+    },
+    {
+      "campo": "explicacion",
+      "descripcion": "Reglas activadas + features que contribuyeron (explicabilidad)"
+    },
+    {
+      "campo": "fuente",
+      "descripcion": "Cita que respalda la recomendacion (trazabilidad)"
+    }
+  ]
+}

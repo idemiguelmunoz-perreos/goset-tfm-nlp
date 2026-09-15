@@ -1,0 +1,1 @@
+"""Evaluación del Componente B."""
