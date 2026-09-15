@@ -22,7 +22,7 @@ from goset_recomendador.engine import recomendar
 from goset_recomendador.normalize import normalize
 
 FIX = pathlib.Path("tests/fixtures/perfiles_sinteticos.json")
-OUT = pathlib.Path("docs/kit_evaluacion_capa2.xlsx")
+OUT = pathlib.Path(__import__("sys").argv[2]) if len(__import__("sys").argv) > 2 else pathlib.Path("docs/kit_evaluacion_capa2.xlsx")
 FNT = "Arial"
 
 
