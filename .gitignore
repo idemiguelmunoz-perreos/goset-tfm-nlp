@@ -19,3 +19,7 @@ venv/
 *.egg-info/
 dist/
 build/
+
+# Datos reales (NUNCA versionar/publicar)
+tests/fixtures/cartillas_reales_353.xlsx
+tests/fixtures/*_reales_*.xlsx
