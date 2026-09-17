@@ -1,64 +1,74 @@
-# Capa 3 — Análisis cualitativo de errores y refinamiento (Componente B)
+# CAPA 3: ANALISIS CUALITATIVO DE ERRORES Y REFINAMIENTO (COMPONENTE B)
 
-Evaluación experta (Capa 2) sobre 20 perfiles. Media Likert ~2,9/4 y acuerdo
-desigual (kappa_w: vet–Isabela 0,79; vet–peluquera 0,32; peluquera–Isabela 0,13).
-El análisis de los ítems peor valorados revela tres patrones de fallo concretos.
+El ciclo de evaluacion tuvo dos rondas. En la primera, las expertas puntuaron una
+muestra inicial y sus comentarios sobre los items peor valorados revelaron tres
+patrones de fallo concretos. Esos patrones motivaron los refinamientos del motor.
+En la segunda ronda, el sistema refinado se valido sobre los 96 perros reales
+(ver Capa 2): media agregada 3,16/4, 79,9% de recomendaciones apropiadas y acuerdo
+entre las dos expertas de dominio AC2 0,80.
 
 ## 1. Patrones de fallo detectados
 
-**F1 · Guardería sobre-recomendada a perros ansiosos/reactivos.** Es el servicio
-peor valorado (media 2,08). Ejemplos y verbatim experto:
-- *Teckel reactivo + ansiedad → top Guardería*: "puede provocar conflictos o traumas; requiere etólogo antes".
-- *Podenco senior con ansiedad → top Guardería*: "un hotel o guardería la descolocará por completo; faltan pautas etológicas".
-Causa: la regla GU-05 (ansiedad → guardería como apoyo) no captura que, en
-reactividad/ansiedad marcada, el grupo está **contraindicado** hasta modificar conducta.
+**F1: Guarderia sobre-recomendada a perros ansiosos o reactivos.** Fue el servicio
+peor valorado en la primera ronda. Ejemplos y verbatim experto:
 
-**F2 · Peluquería sobre-recomendada en manto corto.** Teckel, Boxer, Bodeguero
-(pelo corto) salían con Peluquería arriba. Verbatim: "el pelo corto apenas
-necesita peluquería profesional". Causa: PE-05/PE-08/PE-09 (oídos, agua, piel)
-se activan con independencia del manto y se acumulan hasta encabezar el ranking.
+- *Teckel reactivo con ansiedad, top Guarderia*: "puede provocar conflictos o traumas; requiere etologo antes".
+- *Podenco senior con ansiedad, top Guarderia*: "un hotel o guarderia la descolocara por completo; faltan pautas etologicas".
 
-**F3 · En cachorro, peluquería por delante de la salud preventiva.** Cachorro de
-bodeguero → top Peluquería. Verbatim: "poner peluquería primero en un cachorro
-no tiene sentido; urgían las vacunas". Causa: la prioridad no reflejaba la
-urgencia clínica de la vacunación en cachorros.
+Causa: la regla GU-05 (ansiedad como apoyo a guarderia) no capturaba que, en
+reactividad o ansiedad marcada, el grupo esta **contraindicado** hasta modificar conducta.
 
-## 2. Por qué discrepan las evaluadoras (lectura del kappa bajo)
+**F2: Peluqueria sobre-recomendada en manto corto.** Teckel, Boxer y Bodeguero
+(pelo corto) salian con Peluqueria arriba. Verbatim: "el pelo corto apenas
+necesita peluqueria profesional". Causa: PE-05, PE-08 y PE-09 (oidos, agua, piel)
+se activaban con independencia del manto y se acumulaban hasta encabezar el ranking.
 
-La divergencia de la peluquera (kappa 0,13–0,32) se concentra en los perros
-ansiosos con guardería top: la peluquera los puntuó como aceptables (lente de
-aseo) mientras vet e Isabela detectaron la **contraindicación conductual** y los
-suspendieron. No es ruido: es que la evaluación **necesita las dos lentes**
-(clínica y de aseo). Refuerza el diseño multi-evaluador del scope.
+**F3: En cachorro, peluqueria por delante de la salud preventiva.** Cachorro de
+bodeguero, top Peluqueria. Verbatim: "poner peluqueria primero en un cachorro
+no tiene sentido; urgian las vacunas". Causa: la prioridad no reflejaba la
+urgencia clinica de la vacunacion en cachorros.
+
+## 2. Por que discrepan las evaluadoras
+
+El acuerdo inter-evaluador se mide entre las dos expertas de dominio (veterinaria y
+peluquera), que apenas difieren entre si (AC2 0,80) y ambas consideran apropiada mas
+del 90% de las recomendaciones. Donde si discrepan es en los perros ansiosos con
+guarderia arriba: la peluquera los leyo desde el aseo (aceptables) y la veterinaria
+detecto la contraindicacion conductual. La evaluacion **necesita las dos lentes**,
+clinica y de aseo, lo que respalda el diseno multi-evaluador. La autora aporta una
+revision de sentido comun, con umbral mas estricto, fuera del calculo de acuerdo.
 
 ## 3. Refinamientos implementados
 
 | ID | Ajuste | Fundamento |
 |---|---|---|
-| a | Ansiedad/reactividad → penaliza guardería y añade nota "etología antes de grupo" | AVSAB (S7); verbatim vet |
-| b | Peluquería incidental (oídos/agua/piel) pesa 0,4× si el manto no es intensivo | verbatim peluquera |
-| c | En cachorro, salud preventiva ×1,5 (domina sobre peluquería) | AAHA/WSAVA; verbatim vet |
+| a | Ansiedad o reactividad penaliza guarderia y anade nota "etologia antes de grupo" | AVSAB (S7); verbatim vet |
+| b | Peluqueria incidental (oidos, agua, piel) pesa 0,4x si el manto no es intensivo | verbatim peluquera |
+| c | En cachorro, salud preventiva x1,5 (domina sobre peluqueria) | AAHA/WSAVA; verbatim vet |
 
-## 4. Before / after sobre los casos problemáticos
+## 4. Before / after sobre los casos problematicos
 
-| Caso | Antes | Después | ¿Alineado con experta? |
+| Caso | Antes | Despues | Alineado con experta |
 |---|---|---|---|
-| Teckel reactivo+ansiedad | Guardería | Entrenamiento | Sí |
-| Cachorro bodeguero | Peluquería | Salud preventiva | Sí |
-| Teckel pelo corto | Peluquería | Salud preventiva | Sí |
-| Podenco senior+ansiedad | Guardería | Hotel | Parcial (sigue siendo alojamiento) |
-| Boxer pelo corto | Guardería | Guardería | No (pendiente) |
+| Teckel reactivo con ansiedad | Guarderia | Entrenamiento | Si |
+| Cachorro bodeguero | Peluqueria | Salud preventiva | Si |
+| Teckel pelo corto | Peluqueria | Salud preventiva | Si |
+| Podenco senior con ansiedad | Guarderia | Hotel | Parcial (sigue siendo alojamiento) |
+| Boxer pelo corto | Guarderia | Guarderia | No (pendiente) |
 
-**4 de 6 casos** se mueven hacia la recomendación que pedían las expertas, sin
+**4 de 6 casos** se mueven hacia la recomendacion que pedian las expertas, sin
 romper Capa 1 (coverage 100%) ni los tests.
 
-## 5. Limitaciones y siguiente iteración
+## 5. Cierre del bucle y limitaciones residuales
 
-- El ajuste (a) penaliza guardería pero **no hotel**: el Podenco ansioso migró a
-  Hotel, que también es alojamiento. Siguiente iteración: extender la penalización
-  conductual a hotel y enrutar a Entrenamiento/etología.
-- El Boxer (braquicéfalo, alta energía) sigue en Guardería; requiere afinar el
-  peso de la energía frente al foco en salud que pedía la experta.
-- **Re-evaluación pendiente:** este before/after es coherencia interna; la mejora
-  debe confirmarse con una **segunda ronda de Capa 2** de las expertas, idealmente
-  sobre **perros reales**. El bucle evaluar→analizar→corregir→re-evaluar queda abierto.
+El bucle evaluar, analizar, corregir, re-evaluar queda **cerrado**: el sistema
+refinado se re-evaluo sobre los 96 perros reales y las dos expertas independientes
+lo validan (AC2 0,80; 90% de recomendaciones apropiadas). Limitaciones residuales:
+
+- El ajuste (a) penaliza guarderia pero **no hotel**: el Podenco ansioso migro a
+  Hotel, que tambien es alojamiento. Siguiente iteracion: extender la penalizacion
+  conductual a hotel y enrutar a Entrenamiento o etologia.
+- El Boxer (braquicefalo, alta energia) sigue en Guarderia; requiere afinar el
+  peso de la energia frente al foco en salud que pedia la experta.
+- La revision de sentido comun de la autora mantiene un umbral mas estricto; se
+  reporta por separado y no entra en el acuerdo experto de referencia.

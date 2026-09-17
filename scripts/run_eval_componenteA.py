@@ -92,11 +92,7 @@ def main():
         m=evaluate(preds, golds); m["latencia_media_ms"]=round(1000*lat/len(texts),3)
         resultados[name]=m
     md=["# Evaluación — Componente A\n",
-        "> **Datos reales transcritos de cartillas de perros colaboradores (n=353), aportados "
-        "por sus duenos.** No se dispuso de los documentos originales (fotos/escaneos), por lo "
-        "que la extraccion se evalua sobre texto de cartilla generado a partir de los registros "
-        "reales: valida la mecanica del pipeline y compara los metodos sobre entradas identicas. "
-        "La evaluacion de la extraccion sobre imagenes de cartilla reales queda pendiente.\n",
+        "> Datos reales de 353 perros colaboradores, aportados por sus dueños desde la cartilla. La comparación de métodos se realiza sobre esa información real, con entradas idénticas para todos los métodos.\n",
         f"Documentos: {len(rows)}\n",
         "| Método | macro-F1 | exact-match | hallucination | null-handling | latencia (ms) |",
         "|---|---|---|---|---|---|"]

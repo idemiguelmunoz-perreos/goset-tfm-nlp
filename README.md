@@ -1,4 +1,4 @@
-# GOSET · TFM · Componente A — Extracción NLP estructurada
+# GOSET,  TFM,  Componente A,  Extracción NLP estructurada
 
 Extrae información estructurada (JSON validado con Pydantic) desde **cartillas
 veterinarias** y **condicionados de pólizas de seguro de mascotas**, y compara
@@ -6,8 +6,8 @@ el método propuesto contra baselines.
 
 ## Alcance
 - **Método propuesto:** LLM con *structured outputs* nativos + validación Pydantic.
-- **Baselines:** (1) regex/reglas · (2) LLM zero-shot · (3) LLM few-shot.
-- **Métricas:** F1 por campo, exact-match, hallucination rate, null-handling
+- **Baselines:** (1) regex/reglas,  (2) LLM zero shot,  (3) LLM few shot.
+- **Métricas:** F1 por campo, exact match, hallucination rate, null handling
   accuracy, latencia y coste por documento.
 
 ## Arranque en un comando
@@ -37,8 +37,8 @@ pytest -q
   Las cartillas contienen datos personales: se trabajan localmente y anonimizados.
 
 ## Datos
-- `data/raw/` — documentos de entrada reales (NO versionado).
-- `data/golden/` — golden set anotado a mano (NO versionado).
+- `data/raw/`,  documentos de entrada reales (NO versionado).
+- `data/golden/`,  golden set anotado a mano (NO versionado).
 - Condicionados públicos de pólizas: ver `scripts/download_polizas.py`.
 
 ## Estructura
@@ -46,8 +46,8 @@ pytest -q
 src/goset_extraccion/
   schemas.py            # Modelos Pydantic (objetivo de extracción)
   config.py             # Settings + seed
-  extractors/           # base + regex + zero-shot + few-shot + structured (propuesto)
-  evaluation/metrics.py # F1, exact-match, hallucination, null-handling, latencia, coste
+  extractors/           # base + regex + zero shot + few shot + structured (propuesto)
+  evaluation/metrics.py # F1, exact match, hallucination, null handling, latencia, coste
   api/main.py           # FastAPI + OpenAPI
   data_sources/polizas.py
 tests/                  # pytest

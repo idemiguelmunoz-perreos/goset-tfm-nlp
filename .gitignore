@@ -23,3 +23,9 @@ build/
 # Datos reales (NUNCA versionar/publicar)
 tests/fixtures/cartillas_reales_353.xlsx
 tests/fixtures/*_reales_*.xlsx
+
+# Datos reales derivados (NO versionar)
+tests/fixtures/perfiles_reales.json
+tests/fixtures/recomendaciones_reales.json
+docs/kit_capa2_REAL.xlsx
+docs/kit_capa2_REAL_96.xlsx
