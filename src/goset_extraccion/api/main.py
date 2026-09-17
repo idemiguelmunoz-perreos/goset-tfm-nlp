@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+import datetime as dt
+from typing import Any
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -11,6 +14,7 @@ from goset_extraccion.extractors.llm_zero_shot import LLMZeroShotExtractor
 from goset_extraccion.extractors.regex_extractor import RegexExtractor
 from goset_extraccion.extractors.structured_outputs import StructuredOutputExtractor
 from goset_extraccion.schemas import DogHealthRecord
+from goset_recomendador.engine import recomendar
 
 app = FastAPI(
     title="GOSET · Componente A — Extracción NLP",
@@ -65,3 +69,44 @@ def extract(req: ExtractRequest) -> ExtractResponse:
         cost_usd=result.cost_usd,
         record=result.record,
     )
+
+
+def _record_a_perfil(rec: DogHealthRecord) -> dict[str, Any]:
+    """Traduce el registro clínico extraído a las claves del recomendador."""
+    perfil: dict[str, Any] = {}
+    if rec.raza:
+        perfil["Raza o mezcla"] = rec.raza
+    if rec.sexo:
+        perfil["Sexo"] = rec.sexo.value
+    if rec.peso_kg is not None:
+        perfil["Peso (kg)"] = rec.peso_kg
+    if rec.castrado is not None:
+        perfil["Castrado/esterilizado"] = "Sí" if rec.castrado else "No"
+    if rec.fecha_nacimiento:
+        dias = (dt.date(2026, 8, 23) - rec.fecha_nacimiento).days
+        perfil["Edad (años)"] = round(dias / 365.25, 1)
+    return perfil
+
+
+class EndToEndRequest(BaseModel):
+    """Petición end-to-end: cartilla + contexto opcional de comportamiento."""
+
+    text: str
+    method: str = "regex"
+    contexto: dict[str, Any] = {}
+
+
+@app.post("/end-to-end")
+def end_to_end(req: EndToEndRequest) -> dict[str, Any]:
+    """Cartilla a extracción a recomendación, en una sola llamada.
+
+    Extrae el perfil clínico del texto, lo combina con el contexto de
+    comportamiento aportado y devuelve extracción y recomendación explicable.
+    """
+    result: ExtractionResult = _EXTRACTORS.get(req.method, RegexExtractor)().run(req.text)
+    perfil = {**_record_a_perfil(result.record), **req.contexto}
+    return {
+        "extraccion": result.record.model_dump(mode="json"),
+        "perfil_derivado": perfil,
+        "recomendacion": recomendar(perfil),
+    }

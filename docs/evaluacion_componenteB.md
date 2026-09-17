@@ -55,6 +55,25 @@ Dos expertas de dominio independientes (veterinaria y peluquera canina) puntuaro
 
 **Revision de sentido comun (autora).** Sobre las mismas 96 salidas, la autora aplico un umbral mas estricto (media 2.67, 57% apropiadas). No entra en el acuerdo inter-evaluador; sirve de contraste conservador y coincide con las expertas en el signo del juicio (la mayoria de recomendaciones son defendibles), con un listón mas alto.
 
+### Metricas de ranking
+
+La Capa 2 produce un juicio holistico de la recomendacion principal (top-1), no una
+relevancia graduada por posicion. Definiendo relevante el top-1 cuando las dos expertas
+lo consideran apropiado (media >= 3):
+
+- precision@1 = **0,906** (el 91% de los perros recibe una recomendacion principal apropiada)
+- MRR = 0,906 (coincide con precision@1: con relevancia solo en el top-1, MRR y NDCG@k colapsan a precision@1)
+
+Las metricas graduadas sobre el ranking completo (NDCG@k, recall@k con k>1) requieren
+relevancia por item y por posicion, que el protocolo holistico de la Capa 2 no captura.
+Su implementacion esta en el codigo (src/goset_recomendador/evaluation/ranking.py, con
+tests), y el protocolo de etiquetado por item queda especificado como trabajo futuro.
+
+**Calibracion.** La correlacion de Spearman entre el score interno del sistema para el
+top-1 y el Likert medio de las expertas es **0,35** (n=95): relacion positiva debil. El
+score de confianza anticipa de forma modesta el juicio experto, lo que sugiere margen para
+calibrar el scoring blando. Se reporta como hallazgo, sin sobreinterpretar.
+
 ## Analisis de errores (modos de fallo por dato ausente)
 
 - manto_no_determinado_%: 1.0%

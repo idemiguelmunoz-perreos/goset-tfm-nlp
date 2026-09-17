@@ -1,6 +1,7 @@
 services:
-  api:
+  api-extraccion:
     build: .
+    command: uvicorn goset_extraccion.api.main:app --host 0.0.0.0 --port 8000 --app-dir src
     ports:
       - "8000:8000"
     environment:
@@ -10,7 +11,20 @@ services:
     volumes:
       - ./data:/app/data
     healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/salud')"]
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  api-recomendador:
+    build: .
+    command: uvicorn goset_recomendador.api.main:app --host 0.0.0.0 --port 8001 --app-dir src
+    ports:
+      - "8001:8001"
+    environment:
+      - GOSET_SEED=42
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/health')"]
       interval: 30s
       timeout: 5s
       retries: 3
