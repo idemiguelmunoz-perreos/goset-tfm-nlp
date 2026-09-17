@@ -11,8 +11,8 @@ El objetivo del Componente A es convertir la informacion de cartilla aportada po
 el dueno en un registro estructurado y validado, distinguiendo lo ausente de lo
 inventado. La comparacion se realiza sobre el texto de esa informacion, identico
 para los cuatro metodos, de modo que las diferencias miden capacidad de parseo
-estructurado, no calidad de digitalizacion. No es una prueba de lectura de
-documentos degradados (manuscritos, escaneos); esa extension queda como trabajo
+estructurado sobre la misma informacion de entrada. No es una prueba de lectura de
+documentos no estructurados o degradados; esa extension queda como trabajo
 futuro y no se reclama aqui.
 
 ## Resultados sobre 353 registros reales
